@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IceLog.log4net</name>
+    </assembly>
+    <members>
+        <member name="T:IceLog.log4net.MailEndpoint">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IceLog.log4net.LogEndpoint">
+            <summary>
+            Базовый класс для логирования в реализации log4net
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.LogEndpoint.Close">
+            <summary>
+            Закрытие конечной точки логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.LogEndpoint.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.log4net.LogEndpoint"/> class.
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.LogEndpoint.Appender">
+            <summary>
+            Аппенедер логрирования из log4net
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.LogEndpoint.IsWriteDebug">
+            <summary>
+            Писать ли отладочные записи
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.LogEndpoint.IsWriteInfo">
+            <summary>
+            Писать ли Info сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.LogEndpoint.IsWriteWarning">
+            <summary>
+            Писать ли Warning сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.LogEndpoint.IsWriteError">
+            <summary>
+            Писать ли Erroк сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.LogEndpoint.IsWriteFatal">
+            <summary>
+            Писать ли Fatal сообщения в лог
+            </summary>
+        </member>
+        <member name="F:IceLog.log4net.MailEndpoint.DEFAULT_LAYOUT">
+            <summary>
+            Форматирование сообщений по умолчанию
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.MailEndpoint.Close">
+            <summary>
+            Закрытие конечной точки логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.MailEndpoint.UpdateSMTPSettings(IceLog.Core.SMTPAccount)">
+            <summary>
+             Обновление настроек SMTP аккаунта
+            </summary>
+            <param name="account"></param>
+        </member>
+        <member name="M:IceLog.log4net.MailEndpoint.#ctor(IceLog.Core.SMTPAccount,System.String,System.String,System.String,System.Int32)">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="account"></param>
+            <param name="emailTo"></param>
+            <param name="subject"></param>
+            <param name="layout"></param>
+            <param name="bufferSize"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:IceLog.log4net.MailEndpoint.GetDefaultEndpoint(System.String)">
+            <summary>
+             Возврат конфигурации по-умолчанию
+            </summary>
+            <param name="emailTo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IceLog.log4net.MailEndpoint.Flush">
+            <summary>
+            Flushes this instance.
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.Appender">
+            <summary>
+            Аппенедер логрирования из log4net
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.Host">
+            <summary>
+            Хост smtp сервера
+            </summary>
+            <value>
+            The host.
+            </value>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.Port">
+            <summary>
+            Порт smtp сервера
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.Username">
+            <summary>
+            Имя пользователя smtp сервера
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.Password">
+            <summary>
+            Пароль пользователя smtp сервера
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.IsUseSSL">
+            <summary>
+            Используется ли при соеденении SSL соеденение
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.FromEmail">
+            <summary>
+            Откуда посылается email
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.ToEmail">
+            <summary>
+            Куда посылается email
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.Subject">
+            <summary>
+            Тема, посылаемая в письмах
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.Layout">
+            <summary>
+            Используемое форматирование сообщения
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.MailEndpoint.BufferSize">
+            <summary>
+            Максимальный размер буффера сообщений перед их отправкой
+            </summary>
+        </member>
+        <member name="T:IceLog.log4net.FileLogEndpoint">
+            <summary>
+            Файловая конечная тока логирования 
+            </summary>
+        </member>
+        <member name="F:IceLog.log4net.FileLogEndpoint.DEFAULT_LAYOUT">
+            <summary>
+            Форматирование сообщений по умолчанию
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.FileLogEndpoint.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.log4net.FileLogEndpoint"/> class.
+            </summary>
+            <param name="layout">The layout.</param>
+        </member>
+        <member name="M:IceLog.log4net.FileLogEndpoint.#ctor(System.String,IceLog.Core.FileLogEnpointParams)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.log4net.FileLogEndpoint"/> class.
+            </summary>
+            <param name="layout">The layout.</param>
+            <param name="logParams">The log params.</param>
+        </member>
+        <member name="M:IceLog.log4net.FileLogEndpoint.Close">
+            <summary>
+            Закрытие конечной точки логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.FileLogEndpoint.GetDefaultEndpoint">
+            <summary>
+            Возврат сконфигурированной по умолчанию конечной точки
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IceLog.log4net.FileLogEndpoint.Flush">
+            <summary>
+            Flushes this instance.
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.Appender">
+            <summary>
+            Аппенедер логрирования из log4net
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.FileName">
+            <summary>
+            Имя файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.FileDirectory">
+            <summary>
+            Директория файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.FilePath">
+            <summary>
+            Полный путь файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.MaxFileSize">
+            <summary>
+            Максимальный размер файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.MaxCountRollBackups">
+            <summary>
+            Максимальное число файлов логов
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.Layout">
+            <summary>
+            Форматирование сообщений логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.FileLogEndpoint.BufferSize">
+            <summary>
+            Gets or sets the size of the buffer.
+            </summary>
+            <value>
+            The size of the buffer.
+            </value>
+        </member>
+        <member name="T:IceLog.log4net.SimpleLogEndpoint">
+            <summary>
+             Реализация простейшей точки логирования в реализации log4net
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.SimpleLogEndpoint.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.log4net.SimpleLogEndpoint"/> class.
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.SimpleLogEndpoint.Close">
+            <summary>
+            Закрытие конечной точки логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.SimpleLogEndpoint.GetDefaultEndpoint">
+            <summary>
+            Создание конечной точки с конфигурацией по-умолчанию
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:IceLog.log4net.SimpleLogEndpoint.Appender">
+            <summary>
+            Аппенедер логрирования из log4net
+            </summary>
+        </member>
+        <member name="T:IceLog.log4net.ConsoleLogEndpoint">
+            <summary>
+             Консольная конечная точка логирования в реализации log4net
+            </summary>
+        </member>
+        <member name="F:IceLog.log4net.ConsoleLogEndpoint.DEFAULT_LAYOUT">
+            <summary>
+            Форматирование по-умолчанию для сообщений в этой конечной точке
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.ConsoleLogEndpoint.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.log4net.ConsoleLogEndpoint"/> class.
+            </summary>
+            <param name="layout">The layout.</param>
+        </member>
+        <member name="M:IceLog.log4net.ConsoleLogEndpoint.#ctor(System.String,System.Collections.Generic.IEnumerable{IceLog.Core.LogMessageColor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.log4net.ConsoleLogEndpoint"/> class.
+            </summary>
+            <param name="layout">The layout.</param>
+            <param name="colors">The colors.</param>
+        </member>
+        <member name="M:IceLog.log4net.ConsoleLogEndpoint.SetColorMap(System.Collections.Generic.IEnumerable{IceLog.Core.LogMessageColor})">
+            <summary>
+            Установка цвета логирования сообщений
+            </summary>
+            <param name="colors"></param>
+        </member>
+        <member name="M:IceLog.log4net.ConsoleLogEndpoint.SetColorMap(IceLog.Core.LogMessageColor)">
+            <summary>
+            Установка цвета логирования сообщений
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:IceLog.log4net.ConsoleLogEndpoint.Close">
+            <summary>
+            Закрытие конечной точки логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.ConsoleLogEndpoint.GetDefaultEndpoint">
+            <summary>
+             Возврат конечной точки по-умолчанию
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:IceLog.log4net.ConsoleLogEndpoint.Appender">
+            <summary>
+            Аппенедер логрирования из log4net
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.ConsoleLogEndpoint.Layout">
+            <summary>
+            Форматирование сообщения лога
+            </summary>
+        </member>
+        <member name="T:IceLog.log4net.Logger">
+            <summary>
+             Реализация логгера 
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.Logger.AddLogEndpoint(IceLog.Core.ILogEndpoint)">
+            <summary>
+            Добавить конечную точку логирования
+            </summary>
+            <param name="endpoint">Конечная точка логирования</param>
+        </member>
+        <member name="M:IceLog.log4net.Logger.AddLogEndpoint(System.Collections.Generic.IEnumerable{IceLog.Core.ILogEndpoint})">
+            <summary>
+            Добавление множества конечных точек к логеру
+            </summary>
+            <param name="endpoints"></param>
+        </member>
+        <member name="M:IceLog.log4net.Logger.RemoveLogEndpoint(IceLog.Core.ILogEndpoint)">
+            <summary>
+            Удаление конечной точки логирования из логера
+            </summary>
+            <param name="endpoint"></param>
+        </member>
+        <member name="M:IceLog.log4net.Logger.Close">
+            <summary>
+            Отчистка всех конечных точек логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.Logger.GetLogger">
+            <summary>
+             Создание ( или возврат ) логера по умолчанию.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IceLog.log4net.Logger.GetLogger(System.String)">
+            <summary>
+            Возврат ( или создание) логера по его имени
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IceLog.log4net.Logger.WriteMessage(System.String,IceLog.Core.LogMessageLevel)">
+            <summary>
+            Запись сообщения в лог
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="type">Тип сообщения</param>
+        </member>
+        <member name="M:IceLog.log4net.Logger.WriteMessage(System.String,System.Exception,IceLog.Core.LogMessageLevel)">
+            <summary>
+            Запись сообщения с исключением в лог
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="ex">Исключение, записываемое в лог</param>
+            <param name="type">Тип сообщения</param>
+        </member>
+        <member name="M:IceLog.log4net.Logger.WriteMessageFormat(System.String,IceLog.Core.LogMessageLevel,System.Object[])">
+            <summary>
+            Запись сообщения в лог ( наподобие String.Format)
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="type">Тип сообщения</param>
+            <param name="args">Параметры сообщения в логе</param>
+        </member>
+        <member name="P:IceLog.log4net.Logger.Endpoints">
+            <summary>
+            Массив конечных точек логирования
+            </summary>
+        </member>
+        <member name="T:IceLog.log4net.DBLogEndpoint">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.DBLogEndpoint.Close">
+            <summary>
+            Закрытие конечной точки логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.log4net.DBLogEndpoint.#ctor(System.String,System.String,IceLog.Core.DBType,IceLog.Core.DBParametr[])">
+            <summary>
+             Конструктор
+            </summary>
+            <param name="connectionString"></param>
+            <param name="commandText"></param>
+            <param name="type"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:IceLog.log4net.DBLogEndpoint.GetDefaultEndpoint(IceLog.log4net.DBLogEndpoint.DefaultDBType,System.String,System.String)">
+            <summary>
+            Gets the default endpoint.
+            </summary>
+            <param name="dbtype">The dbtype.</param>
+            <param name="dbName">Name of the db.</param>
+            <param name="table">The table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IceLog.log4net.DBLogEndpoint.Flush">
+            <summary>
+            Flushes this instance.
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.DBLogEndpoint.Appender">
+            <summary>
+            Аппенедер логрирования из log4net
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.DBLogEndpoint.ConnectionString">
+            <summary>
+            Строка соеденения с БД
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.DBLogEndpoint.CommandText">
+            <summary>
+            SQL комманда добавления записи в БД
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.DBLogEndpoint.DatabaseType">
+            <summary>
+            Тип БД
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.DBLogEndpoint.Parameters">
+            <summary>
+            Параметры таблицы логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.log4net.DBLogEndpoint.BufferSize">
+            <summary>
+            Gets or sets the size of the buffer.
+            </summary>
+            <value>
+            The size of the buffer.
+            </value>
+        </member>
+        <member name="T:IceLog.log4net.DBLogEndpoint.DefaultDBType">
+            <summary>
+             Тип БД по-умолчанию
+            </summary>
+        </member>
+        <member name="F:IceLog.log4net.DBLogEndpoint.DefaultDBType.Access">
+            <summary>
+             Акссес
+            </summary>
+        </member>
+        <member name="F:IceLog.log4net.DBLogEndpoint.DefaultDBType.MSSQL">
+            <summary>
+            MS SQL
+            </summary>
+        </member>
+    </members>
+</doc>

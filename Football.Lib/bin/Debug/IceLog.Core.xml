@@ -1,0 +1,767 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IceLog.Core</name>
+    </assembly>
+    <members>
+        <member name="T:IceLog.Core.IMailEndpoint">
+            <summary>
+             Интерфейс конечной точки логирования
+            через посылку сообщений, используя email
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.IBufferLogEndpoint">
+            <summary>
+             Интерфейс конечной точки, поддерживающий буферезацию данных
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.ILogEndpoint">
+            <summary>
+             Интерфейс конечной точки логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.ILogEndpoint.Close">
+            <summary>
+             Закрытие конечной точки логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogEndpoint.IsWriteDebug">
+            <summary>
+             Писать ли отладочные записи
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogEndpoint.IsWriteInfo">
+            <summary>
+             Писать ли Info сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogEndpoint.IsWriteWarning">
+            <summary>
+             Писать ли Warning сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogEndpoint.IsWriteError">
+            <summary>
+             Писать ли Erroк сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogEndpoint.IsWriteFatal">
+            <summary>
+             Писать ли Fatal сообщения в лог
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.IBufferLogEndpoint.Flush">
+            <summary>
+             посылка всех данных из буфера в хранилище
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IBufferLogEndpoint.BufferSize">
+            <summary>
+             Размер буфера
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.IMailEndpoint.UpdateSMTPSettings(IceLog.Core.SMTPAccount)">
+            <summary>
+             Обновление настроек SMTP аккаунта
+            </summary>
+            <param name="acc"></param>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.Host">
+            <summary>
+            Хост smtp сервера 
+            </summary>
+            <value>
+            The host.
+            </value>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.Port">
+            <summary>
+             Порт smtp сервера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.Username">
+            <summary>
+            Имя пользователя smtp сервера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.Password">
+            <summary>
+             Пароль пользователя smtp сервера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.IsUseSSL">
+            <summary>
+             Используется ли при соеденении SSL соеденение
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.FromEmail">
+            <summary>
+             Откуда посылается email
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.ToEmail">
+            <summary>
+             Куда посылается email
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.Subject">
+            <summary>
+             Тема, посылаемая в письмах
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IMailEndpoint.Layout">
+            <summary>
+             Используемое форматирование сообщения
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.ILogger">
+            <summary>
+             Интерфейс логера.
+             Базовый интерфейс для ведения лога
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.ILogger.AddLogEndpoint(IceLog.Core.ILogEndpoint)">
+            <summary>
+             Добавить конечную точку логирования
+            </summary>
+            <param name="endpoint">Конечная точка логирования</param>
+        </member>
+        <member name="M:IceLog.Core.ILogger.AddLogEndpoint(System.Collections.Generic.IEnumerable{IceLog.Core.ILogEndpoint})">
+            <summary>
+             Добавление множества конечных точек к логеру
+            </summary>
+            <param name="endpoints"></param>
+        </member>
+        <member name="M:IceLog.Core.ILogger.RemoveLogEndpoint(IceLog.Core.ILogEndpoint)">
+            <summary>
+             Удаление конечной точки логирования из логера
+            </summary>
+            <param name="endpoint"></param>
+        </member>
+        <member name="M:IceLog.Core.ILogger.Close">
+            <summary>
+             Закрытие логгера.
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.ILogger.WriteMessage(System.String,IceLog.Core.LogMessageLevel)">
+            <summary>
+             Запись сообщения в лог
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="type">Тип сообщения</param>
+        </member>
+        <member name="M:IceLog.Core.ILogger.WriteMessage(System.String,System.Exception,IceLog.Core.LogMessageLevel)">
+            <summary>
+             Запись сообщения с исключением в лог
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="ex">Исключение, записываемое в лог</param>
+            <param name="type">Тип сообщения</param>
+        </member>
+        <member name="M:IceLog.Core.ILogger.WriteMessageFormat(System.String,IceLog.Core.LogMessageLevel,System.Object[])">
+            <summary>
+            Запись сообщения в лог ( наподобие String.Format)
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="type">Тип сообщения</param>
+            <param name="args">Параметры сообщения в логе</param>
+        </member>
+        <member name="M:IceLog.Core.ILogger.EnableLogging">
+            <summary>
+             Полностью включить логирование
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.ILogger.DisableLogging">
+            <summary>
+             Полностью отключить логирование
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogger.Name">
+            <summary>
+             Имя логера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogger.Config">
+            <summary>
+            Конфигурация логгера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.ILogger.Endpoints">
+            <summary>
+             Массив конечных точек логирования
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.LogMessageColor">
+            <summary>
+             Класс , связывающий тип и цвет сообщения в логе
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.LogMessageColor.#ctor(IceLog.Core.LogMessageLevel,IceLog.Core.ConsloeColor)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="type">Тип сообщения</param>
+            <param name="color">Цвет сообщения</param>
+        </member>
+        <member name="P:IceLog.Core.LogMessageColor.Type">
+            <summary>
+            Тип сообщения
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.LogMessageColor.Color">
+            <summary>
+             Цвет сообщения
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.LoggerConfig">
+            <summary>
+             Конфигурирование логгера
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.LoggerConfig.#ctor">
+            <summary>
+             Создания конфигурации по-умолчанию
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.LoggerConfig.IsWriteDebug">
+            <summary>
+             Писать ли отладочные записи
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.LoggerConfig.IsWriteInfo">
+            <summary>
+             Писать ли Info сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.LoggerConfig.IsWriteWarning">
+            <summary>
+             Писать ли Warning сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.LoggerConfig.IsWriteError">
+            <summary>
+             Писать ли Erroк сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.LoggerConfig.IsWriteFatal">
+            <summary>
+             Писать ли Fatal сообщения в лог
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.LoggerConfig.IsWriteGlobalLog">
+            <summary>
+             Писать ли данные в глобальный лог
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.ConsloeColor">
+            <summary>
+            Цвет сообщения лога
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.Blue">
+            <summary>
+            Синий
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.Green">
+            <summary>
+            Зеленый
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.Cyan">
+            <summary>
+            Голубой
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.Red">
+            <summary>
+            Красный
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.Purple">
+            <summary>
+            Пурпурный
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.Yellow">
+            <summary>
+            Желтый
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.White">
+            <summary>
+            Белый
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.ConsloeColor.HighIntensity">
+            <summary>
+             Флаг цвета высокой интенсивности
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.ISimpleLogEndpoint">
+            <summary>
+            Интерфейс простейшей точки логирования
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.IFileLogEnpoint">
+            <summary>
+            Интерфейс файловой конечной точки логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IFileLogEnpoint.FileName">
+            <summary>
+             Имя файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IFileLogEnpoint.FileDirectory">
+            <summary>
+             Директория файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IFileLogEnpoint.FilePath">
+            <summary>
+             Полный путь файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IFileLogEnpoint.MaxFileSize">
+            <summary>
+             Максимальный размер файла логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IFileLogEnpoint.MaxCountRollBackups">
+            <summary>
+             Максимальное число файлов логов
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IFileLogEnpoint.Layout">
+            <summary>
+            Форматирование сообщений логирования
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.IConsoleLogEndpoint">
+            <summary>
+            Интерфейс консольной точки логирования 
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.IConsoleLogEndpoint.SetColorMap(System.Collections.Generic.IEnumerable{IceLog.Core.LogMessageColor})">
+            <summary>
+             Установка цвета логирования сообщений
+            </summary>
+            <param name="colors"></param>
+        </member>
+        <member name="M:IceLog.Core.IConsoleLogEndpoint.SetColorMap(IceLog.Core.LogMessageColor)">
+            <summary>
+             Установка цвета логирования сообщений
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="P:IceLog.Core.IConsoleLogEndpoint.Layout">
+            <summary>
+            Форматирование сообщения лога
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.IDBLogEndpoint">
+            <summary>
+             Конечная точка базы данных
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IDBLogEndpoint.ConnectionString">
+            <summary>
+             Строка соеденения с БД
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IDBLogEndpoint.CommandText">
+            <summary>
+             SQL комманда добавления записи в БД
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IDBLogEndpoint.DatabaseType">
+            <summary>
+             Тип БД
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IDBLogEndpoint.Parameters">
+            <summary>
+             Параметры таблицы логирования
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.FileLogEnpointParams">
+            <summary>
+            Параметры файловой конечной точки логирования
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.FileLogEnpointParams.DEFAULT_FILE_DIRECTORY">
+            <summary>
+            Папка по умолчанию для логирования
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.FileLogEnpointParams.DEFAULT_MAX_FILE_SIZE">
+            <summary>
+            Максимальный размер файла логов по-умолчанию
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.FileLogEnpointParams.DEFAULT_MAX_COUNT_BACKUPS">
+            <summary>
+             Максимальное число файлов бекапа логов
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.FileLogEnpointParams.#ctor(System.String,System.String,System.Int64,System.Int32)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="fileName">Имя файла логов</param>
+            <param name="fileDirectory">Директория логов</param>
+            <param name="maxFileSize">Максимальный размер файла логов</param>
+            <param name="maxCountRollingBackups">Число файлов логов</param>
+        </member>
+        <member name="P:IceLog.Core.FileLogEnpointParams.FileName">
+            <summary>
+             Имя файла логов
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.FileLogEnpointParams.FileDirectory">
+            <summary>
+             Директория файлов логов
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.FileLogEnpointParams.FilePath">
+            <summary>
+            Полный путь к файлу логов
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.FileLogEnpointParams.MaxFileSize">
+            <summary>
+            Максимальный размер файла с логами
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.FileLogEnpointParams.MaxCountRollBackups">
+            <summary>
+             Максимальное количество файлов бекапа логов
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.DBColumnType">
+            <summary>
+             Тип атрибута таблицы логирования
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBColumnType.Int">
+            <summary>
+             Целочисленное число
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBColumnType.String">
+            <summary>
+            Строка 
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBColumnType.Double">
+            <summary>
+            Вещественное число
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBColumnType.DateTime">
+            <summary>
+             Время
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBColumnType.UtcDateTime">
+            <summary>
+             UTC время
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.DBType">
+            <summary>
+             Тип базы данных
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBType.MSSQL">
+            <summary>
+             База данных MS SQL
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBType.OLEDB">
+            <summary>
+             База данных OLE DB
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBType.ODBC">
+            <summary>
+             ODBC База данных
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.DBType.Oracle">
+            <summary>
+             БД Oracle
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.SMTPAccount">
+            <summary>
+             SMTPAccount используемый для отправки сообщений
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.SMTPAccount.#ctor(System.String,System.Int32,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.Core.SMTPAccount"/> class.
+            </summary>
+            <param name="host">The host.</param>
+            <param name="port">The port.</param>
+            <param name="userName">Name of the user.</param>
+            <param name="password">The password.</param>
+            <param name="email">The email.</param>
+            <param name="isUseSSL">if set to <c>true</c> [is use SSL].</param>
+        </member>
+        <member name="M:IceLog.Core.SMTPAccount.#ctor(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.Core.SMTPAccount"/> class.
+            </summary>
+            <param name="host">The host.</param>
+            <param name="port">The port.</param>
+            <param name="userName">Name of the user.</param>
+            <param name="password">The password.</param>
+        </member>
+        <member name="P:IceLog.Core.SMTPAccount.Host">
+            <summary>
+            Hostname smtp сервера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.SMTPAccount.Port">
+            <summary>
+             Порт, прослушиваемый SMTP сервером
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.SMTPAccount.Username">
+            <summary>
+             Имя пользователя от которого посылается сообщение
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.SMTPAccount.Password">
+            <summary>
+             Пароль от имени которого отправляется сообщение
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.SMTPAccount.Email">
+            <summary>
+             Email отправителя
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.SMTPAccount.IsUseSSL">
+            <summary>
+             Использовать ли SSL соеденение
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.DBParametr">
+            <summary>
+             Столбец таблицы БД логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.DBParametr.#ctor(IceLog.Core.DBColumnType,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.Core.DBParametr"/> class.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="parametrName">Name of the parametr.</param>
+            <param name="parametrValue">The parametr value.</param>
+        </member>
+        <member name="P:IceLog.Core.DBParametr.ParametrType">
+            <summary>
+             Тип столбца
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.DBParametr.ParametrName">
+            <summary>
+             Имя параметра в запросе
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.DBParametr.ParametrValue">
+            <summary>
+             Значение параметра
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.LogMessageLevel">
+            <summary>
+             Тип сообщения в логе
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.LogMessageLevel.Debug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.LogMessageLevel.Info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.LogMessageLevel.Warning">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.LogMessageLevel.Error">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IceLog.Core.LogMessageLevel.Fatal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.IRemoteLogEndpoint">
+            <summary>
+             Конечная точка удаленного сервиса логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IRemoteLogEndpoint.ServiceURL">
+            <summary>
+             URL адрес удаленной точки логирования
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IRemoteLogEndpoint.Timeout">
+            <summary>
+             Время обработки запроса
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.IRemoteLogEndpoint.CountErrorAttemps">
+            <summary>
+             Количество попыток при ошибке отправки
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.GlobalContext">
+            <summary>
+             Глобальный контекст логирования
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.GlobalContext.ConfigureGlobalLogger(IceLog.Core.BaseLogger)">
+            <summary>
+             Указать глобальный логгер
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:IceLog.Core.GlobalContext.RegisterLogger(IceLog.Core.BaseLogger)">
+            <summary>
+             Регестрация логера
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:IceLog.Core.GlobalContext.UnregisterLogger(IceLog.Core.BaseLogger)">
+            <summary>
+             Снятие с регестрации логера
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:IceLog.Core.GlobalContext.EnableAllLoggers">
+            <summary>
+            Включение всех логгеров
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.GlobalContext.DisableAllLoggers">
+            <summary>
+            Отключение всех логгеров
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.GlobalContext.SetLogEnableLevel(IceLog.Core.LogMessageLevel,System.Boolean)">
+            <summary>
+            Включение\выключение логгирования для всех логов для определенного типа сообщений
+            </summary>
+            <param name="type">The type.</param>
+            <param name="isLogEnable">if set to <c>true</c> [is log enable].</param>
+        </member>
+        <member name="P:IceLog.Core.GlobalContext.GlobalLogger">
+            <summary>
+             Глобальный логгер
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.GlobalContext.Loggers">
+            <summary>
+             Все логгера в системе
+            </summary>
+        </member>
+        <member name="T:IceLog.Core.BaseLogger">
+            <summary>
+             Базовый класс для всех логеров.
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IceLog.Core.BaseLogger"/> class.
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.AddLogEndpoint(IceLog.Core.ILogEndpoint)">
+            <summary>
+            Добавить конечную точку логирования
+            </summary>
+            <param name="endpoint">Конечная точка логирования</param>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.AddLogEndpoint(System.Collections.Generic.IEnumerable{IceLog.Core.ILogEndpoint})">
+            <summary>
+            Добавление множества конечных точек к логеру
+            </summary>
+            <param name="endpoints"></param>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.RemoveLogEndpoint(IceLog.Core.ILogEndpoint)">
+            <summary>
+            Удаление конечной точки логирования из логера
+            </summary>
+            <param name="endpoint"></param>
+        </member>
+        <member name="F:IceLog.Core.BaseLogger._isCloesed">
+            <summary>
+             Флаг, показывающий не закрыт ли логер
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.Close">
+            <summary>
+            Закрытие логгера.
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.WriteMessage(System.String,IceLog.Core.LogMessageLevel)">
+            <summary>
+            Запись сообщения в лог
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="type">Тип сообщения</param>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.WriteMessage(System.String,System.Exception,IceLog.Core.LogMessageLevel)">
+            <summary>
+            Запись сообщения с исключением в лог
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="ex">Исключение, записываемое в лог</param>
+            <param name="type">Тип сообщения</param>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.WriteMessageFormat(System.String,IceLog.Core.LogMessageLevel,System.Object[])">
+            <summary>
+            Запись сообщения в лог ( наподобие String.Format)
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="type">Тип сообщения</param>
+            <param name="args">Параметры сообщения в логе</param>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.EnableLogging">
+            <summary>
+            Полностью включить логирование
+            </summary>
+        </member>
+        <member name="M:IceLog.Core.BaseLogger.DisableLogging">
+            <summary>
+            Полностью отключить логирование
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.BaseLogger.Name">
+            <summary>
+            Имя логера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.BaseLogger.Config">
+            <summary>
+            Конфигурация логгера
+            </summary>
+        </member>
+        <member name="P:IceLog.Core.BaseLogger.Endpoints">
+            <summary>
+            Массив конечных точек логирования
+            </summary>
+        </member>
+    </members>
+</doc>

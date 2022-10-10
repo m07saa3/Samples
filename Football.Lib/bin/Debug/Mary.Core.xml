@@ -1,0 +1,947 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mary.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Mary.Core.ICheckHtmlNode">
+            <summary>
+             Интерфейс, реалезующий поле выбора
+            radio и checkbox
+            </summary>
+        </member>
+        <member name="M:Mary.Core.ICheckHtmlNode.GetChecked">
+            <summary>
+             Выбран ли элемент
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ICheckHtmlNode.SetCheked(System.Boolean)">
+            <summary>
+             Установка знасения выбран ли элемент
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Mary.Core.ICheckHtmlNode.SetCheked(System.Boolean,System.TimeSpan)">
+            <summary>
+             Установка значения выбран ли элемент
+            </summary>
+            <param name="value"></param>
+            <param name="pause"></param>
+        </member>
+        <member name="T:Mary.Core.IFormHtmlNode">
+            <summary>
+             Интерфейс, реалезующий html тег form
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IFormHtmlNode.Action">
+            <summary>
+            URL адрес по которому осуществляется отправка формы
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IFormHtmlNode.Method">
+            <summary>
+            Метод отправки формы
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IFormHtmlNode.Inputs">
+            <summary>
+             Input элементы формы
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IFormHtmlNode.SubmitElements">
+            <summary>
+             Элементы отправки формы
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IFormHtmlNode.Submit(System.Int32)">
+            <summary>
+             Отправка формы
+            </summary>
+            <param name="submitElementNumber"></param>
+        </member>
+        <member name="T:Mary.Core.IHtmlNode">
+            <summary>
+             Интерфейс, реалезующий Html элемент
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IHtmlNode.TagName">
+            <summary>
+             Имя тега
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IHtmlNode.InnerHtml">
+            <summary>
+             Внутренний html элемента
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IHtmlNode.InnerText">
+            <summary>
+             Внутренний текст элемента
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IHtmlNode.Html">
+            <summary>
+             HTML элемента
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IHtmlNode.Parent">
+            <summary>
+             Ссылка на родительский элемент
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IHtmlNode.FirstChild">
+            <summary>
+             Первый дочерний элемент
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IHtmlNode.ChildNodes">
+            <summary>
+            Список дочерних элементов
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IHtmlNode.GetAttribute(System.String)">
+            <summary>
+             Возвращает значение атрибута
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IHtmlNode.SetAttribute(System.String,System.String)">
+            <summary>
+            Задает значение атрибута
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Mary.Core.IHtmlNode.Click">
+            <summary>
+             Нажать на элемент ( актуально для IE)
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IHtmlNode.InvokeMember(System.String)">
+            <summary>
+             Вызвать метод ( актуально только для IE)
+            </summary>
+            <param name="member"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mary.Core.IImageHtmlNode">
+            <summary>
+            Интерфейс, реалезующий тег img
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IImageHtmlNode.ImageUrl">
+            <summary>
+             Ссылка на картинку
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IImageHtmlNode.GetImage">
+            <summary>
+            Метод скачивает контент, по указанному пути
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mary.Core.IInputHtmlNode">
+            <summary>
+             Интерфейс, реализующий тег input и аналогичные ему 
+             Такие как textarea и select
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IInputHtmlNode.Name">
+            <summary>
+            Имя input элемента
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IInputHtmlNode.Value">
+            <summary>
+             Значение, хронящиеся в input узле
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IInputHtmlNode.Form">
+            <summary>
+             Форма, который пренадлежит Input элемент
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IInputHtmlNode.GetValue">
+            <summary>
+             Вернуть текущее значение
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IInputHtmlNode.SetValue(System.String)">
+            <summary>
+             Установить значение
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Mary.Core.IInputHtmlNode.SetValue(System.String,System.Boolean)">
+            <summary>
+             Установить значение
+            </summary>
+            <param name="value"></param>
+            <param name="isQuickInput"></param>
+        </member>
+        <member name="M:Mary.Core.IInputHtmlNode.SetValue(System.String,System.TimeSpan)">
+            <summary>
+             Установить значение
+            </summary>
+            <param name="value"></param>
+            <param name="pause"></param>
+        </member>
+        <member name="M:Mary.Core.IInputHtmlNode.SetValue(System.String,System.Boolean,System.TimeSpan)">
+            <summary>
+             Установить значение
+            </summary>
+            <param name="value"></param>
+            <param name="isQuickInput"></param>
+            <param name="pause"></param>
+        </member>
+        <member name="P:Mary.Core.IInputHtmlNode.InputType">
+            <summary>
+            Тип Input элемента
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mary.Core.ILinkHtmlNode">
+            <summary>
+             Элемент, реалезующий интерфейс гиперсыылки.
+             Html тег a
+            </summary>
+        </member>
+        <member name="P:Mary.Core.ILinkHtmlNode.URL">
+            <summary>
+             URL адрес на который ведет гиперссылка
+            </summary>
+        </member>
+        <member name="M:Mary.Core.ILinkHtmlNode.Navigate">
+            <summary>
+             Произвести переход по ссылке
+            </summary>
+        </member>
+        <member name="T:Mary.Core.InputType">
+            <summary>
+             Тип Input элемента
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.UNKNOWN">
+            <summary>
+             Неизвестный тип
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.Text">
+            <summary>
+             Текстовой элемент ввода
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.Checkbox">
+            <summary>
+             Флажок
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.Radiobox">
+            <summary>
+            Радиокнопка
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.File">
+            <summary>
+             Файл
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.Hidden">
+            <summary>
+             Скрытое поле ввода
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.Submit">
+            <summary>
+             Submit элемент
+            </summary>
+        </member>
+        <member name="F:Mary.Core.InputType.Select">
+            <summary>
+             Список выбора
+            </summary>
+        </member>
+        <member name="T:Mary.Core.IOptionHtmlNode">
+            <summary>
+             Элемент списка select. Соответствует html тегу Option
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IOptionHtmlNode.Value">
+            <summary>
+             Выставляемое значение
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IOptionHtmlNode.Text">
+            <summary>
+             Текст пункта меню
+            </summary>
+        </member>
+        <member name="T:Mary.Core.ISearchNodes">
+            <summary>
+             Интерфейс поиска элементов на html странице
+            </summary>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetNodesByName(System.String)">
+            <summary>
+             Возвращает html элементы по имени
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstNodeByName(System.String)">
+            <summary>
+             Возвращает первый html элемент по имени
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetInputNodesByName(System.String)">
+            <summary>
+             Возвращает html элементы по имени
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstInputNodeByName(System.String)">
+            <summary>
+             Возвращает первый html элемент по имени
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetNodesByTagName(System.String)">
+            <summary>
+             Возвращает элементы по тегу 
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstNodeByTagName(System.String)">
+            <summary>
+             Возвращает первый элемент по тегу
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetInputNodesByTagName(System.String)">
+            <summary>
+             Возвращает элементы по тегу 
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstInputNodeByTagName(System.String)">
+            <summary>
+             Возвращает первый элемент по тегу
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetNodesByAttribute(System.String,System.String)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetNodesByAttribute(Mary.Core.SearchParameter)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="parametr">The parametr.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetInputNodesByAttribute(System.String,System.String)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetInputNodesByAttribute(Mary.Core.SearchParameter)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="parametr">The parametr.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstNodeByAttribute(System.String,System.String)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstNodeByAttribute(Mary.Core.SearchParameter)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="parametr">The parametr.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstInputNodeByAttribute(System.String,System.String)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstInputNodeByAttribute(Mary.Core.SearchParameter)">
+            <summary>
+            Возвращает множество элементов удовл указаному значению указанного атрибута
+            </summary>
+            <param name="parametr">The parametr.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetNodesByAttributes(Mary.Core.SearchCollection)">
+            <summary>
+            Возвращает множество элементов удовл указаному значений указанных атрибутов
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstNodeByAttributes(Mary.Core.SearchCollection)">
+            <summary>
+            Возвращает множество элементов удовл указаному значений указанных атрибутов
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetInputNodesByAttributes(Mary.Core.SearchCollection)">
+            <summary>
+            Возвращает множество элементов удовл указаному значений указанных атрибутов
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.GetFirstInputNodeByAttributes(Mary.Core.SearchCollection)">
+            <summary>
+            Возвращает множество элементов удовл указаному значений указанных атрибутов
+            </summary>
+            <param name="coll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.ExistNodeByName(System.String,System.Int32)">
+            <summary>
+            Присутствует ли элемент с указанным именем
+            </summary>
+            <param name="name"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByName(System.String,System.Int32)">
+            <summary>
+             Дождаться элемента с указаным именем
+            </summary>
+            <param name="name"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByName(System.String,System.TimeSpan,System.Int32)">
+            <summary>
+            Дождаться элемента с указаным именем
+            </summary>
+            <param name="name"></param>
+            <param name="waitTimeout"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.ExistNodeByTagName(System.String,System.Int32)">
+            <summary>
+             Присутствует ли элемент с указанным тегом
+            </summary>
+            <param name="name"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByTagName(System.String,System.Int32)">
+            <summary>
+            Дождаться элемента с указаным тегом
+            </summary>
+            <param name="name"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByTagName(System.String,System.TimeSpan,System.Int32)">
+            <summary>
+            Дождаться элемента с указаным тегом
+            </summary>
+            <param name="name"></param>
+            <param name="waitTimeout"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.ExistNodeByAttribute(System.String,System.String,System.Int32)">
+            <summary>
+             Присутствует ли элемент с указанным атрибутом-значенеим
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.ExistNodeByAttribute(Mary.Core.SearchParameter,System.Int32)">
+            <summary>
+             Присутствует ли элемент с указанным атрибутом-значенеим
+            </summary>
+            <param name="parametr"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByAttribute(System.String,System.String,System.Int32)">
+            <summary>
+            Дождаться элемента с указаным атрибутом-значением
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByAttribute(Mary.Core.SearchParameter,System.Int32)">
+            <summary>
+            Дождаться элемента с указаным атрибутом-значением
+            </summary>
+            <param name="parametr"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByAttribute(System.String,System.String,System.TimeSpan,System.Int32)">
+            <summary>
+            Дождаться элемента с указаным атрибутом-значением
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="waitTimeout"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByAttribute(Mary.Core.SearchParameter,System.TimeSpan,System.Int32)">
+            <summary>
+            Дождаться элемента с указаным атрибутом-значением
+            </summary>
+            <param name="parametr"></param>
+            <param name="waitTimeout"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.ExistNodeByAttributes(Mary.Core.SearchCollection,System.Int32)">
+            <summary>
+             Присутствует ли указанное число элементов с указанными атрибутами-значениями
+            </summary>
+            <param name="coll"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByAttributes(Mary.Core.SearchCollection,System.Int32)">
+            <summary>
+            Подождать указанное число элементов с указанными атрибутами-значениями
+            </summary>
+            <param name="coll"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISearchNodes.WaitNodeByAttributes(Mary.Core.SearchCollection,System.TimeSpan,System.Int32)">
+            <summary>
+            Подождать указанное число элементов с указанными атрибутами-значениями
+            </summary>
+            <param name="coll"></param>
+            <param name="waitTimeout"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mary.Core.ISelectHtmlNode">
+            <summary>
+             Интерфейс html элемента select
+            </summary>
+        </member>
+        <member name="M:Mary.Core.ISelectHtmlNode.GetOptions">
+            <summary>
+             Метод возвращает список пунктов списка
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.ISelectHtmlNode.SetOption(Mary.Core.IOptionHtmlNode)">
+            <summary>
+             Установить в кач-ве выбранного укзаный элемент списка
+            </summary>
+            <param name="option"></param>
+        </member>
+        <member name="M:Mary.Core.ISelectHtmlNode.SetOption(Mary.Core.IOptionHtmlNode,System.TimeSpan)">
+            <summary>
+            Установить в кач-ве выбранного укзаный элемент списка
+            </summary>
+            <param name="option"></param>
+            <param name="span"></param>
+        </member>
+        <member name="T:Mary.Core.ISubmitHtmlElement">
+            <summary>
+             Элементы, поддерживающие отправку формы
+            </summary>
+        </member>
+        <member name="M:Mary.Core.ISubmitHtmlElement.Submit">
+            <summary>
+             Отправить форму
+            </summary>
+        </member>
+        <member name="T:Mary.Core.IWebClient">
+            <summary>
+             Интерфейс браузера
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Timeout">
+            <summary>
+             Максимальное время ожидания загрузки страницы
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.IsAlwaysQuick">
+            <summary>
+             Всегда ли использовать быстрое зполнение полей браузера
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.IsWaitNodes">
+            <summary>
+             Автоматически ли ждать загрузки узлов на странице
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.StandartInputPause">
+            <summary>
+             Стандартная пауза после заполнения полей пользоватлем
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.StandartPagePause">
+            <summary>
+             Стандартная пауза после загрузки страницы
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.MinimumTimeBetweenNavigates">
+            <summary>
+             Минимально допустимое время между загрузками страниц
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.StandartWaitTimeout">
+            <summary>
+             Стандартное время ожидания элемента на странице
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Cookie">
+            <summary>
+             Cookie
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.HTML">
+            <summary>
+             Html браузера
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.URL">
+            <summary>
+            Gets the URL.
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IWebClient.ClearCookie">
+            <summary>
+             Очистка куков
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IWebClient.ClearInternalData">
+            <summary>
+             Метод очистки внутренних данных браузера
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IWebClient.Navigate(System.String)">
+            <summary>
+             Загрузить страницу по URL
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:Mary.Core.IWebClient.Navigate(System.String,System.TimeSpan)">
+            <summary>
+            Загрузка страницы по URL
+            </summary>
+            <param name="url"></param>
+            <param name="pagePause"></param>
+        </member>
+        <member name="M:Mary.Core.IWebClient.Navigate(System.String,Mary.Core.PostParameter[],System.String)">
+            <summary>
+            Выполнение POST запроса
+            </summary>
+            <param name="url"></param>
+            <param name="postParams"></param>
+            <param name="contentType"></param>
+        </member>
+        <member name="M:Mary.Core.IWebClient.Navigate(System.String,Mary.Core.PostParameter[],System.TimeSpan,System.String)">
+            <summary>
+             Выполнение POST запроса
+            </summary>
+            <param name="url"></param>
+            <param name="postParams"></param>
+            <param name="pagePause"></param>
+            <param name="contentType"></param>
+        </member>
+        <member name="M:Mary.Core.IWebClient.Navigate(System.String,Mary.Core.RequestHeader[])">
+            <summary>
+             Навмнацмя с дополнительными загаловками
+            </summary>
+            <param name="url"></param>
+            <param name="additionalHeaders"></param>
+        </member>
+        <member name="M:Mary.Core.IWebClient.Navigate(System.String,Mary.Core.RequestHeader[],System.TimeSpan)">
+            <summary>
+            Навмнацмя с дополнительными загаловками
+            </summary>
+            <param name="url"></param>
+            <param name="additionalHeaders"></param>
+            <param name="pagePause"></param>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Document">
+            <summary>
+             Главный элемент страницы
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Forms">
+            <summary>
+             Список Форм текущей страницы
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Inputs">
+            <summary>
+             Список INPUT полей
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Images">
+            <summary>
+             Список картинок
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Links">
+            <summary>
+             Список гиперсылок
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IWebClient.Submit(System.Int32,System.Int32)">
+            <summary>
+             Осуществить отправку формы
+            </summary>
+            <param name="numberForm"></param>
+            <param name="numberSubmitElement"></param>
+        </member>
+        <member name="M:Mary.Core.IWebClient.GetNodeByID(System.String)">
+            <summary>
+             Вернуть элемент по его ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IWebClient.GetInputNodeByID(System.String)">
+            <summary>
+             Вернуть элемент по его ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IWebClient.ExistNodeByID(System.String)">
+            <summary>
+             Есть ли элемент с указаным ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IWebClient.WaitNodeByID(System.String)">
+            <summary>
+             Дождаться элемента с указаным ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IWebClient.WaitNodeByID(System.String,System.TimeSpan)">
+            <summary>
+             Дождаться элемента с указаным ID за указанное время
+            </summary>
+            <param name="id"></param>
+            <param name="waitTimeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IWebClient.DownloadData(System.String)">
+            <summary>
+             Скачать данные по указанному URL
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mary.Core.IWebClient.LoadHTML(System.String)">
+            <summary>
+            Загрузка HTML напрямую
+            </summary>
+            <param name="html"></param>
+        </member>
+        <member name="M:Mary.Core.IWebClient.NavigateBack">
+            <summary>
+            Возврат на предыдущую старницу
+            </summary>
+        </member>
+        <member name="M:Mary.Core.IWebClient.NavigateNext">
+            <summary>
+            Переход на следующую страницу
+            </summary>
+        </member>
+        <member name="P:Mary.Core.IWebClient.Title">
+            <summary>
+             Заголовок страницы
+            </summary>
+        </member>
+        <member name="T:Mary.Core.PostParameterType">
+            <summary>
+             Тип POST параметра
+            </summary>
+        </member>
+        <member name="F:Mary.Core.PostParameterType.Simple">
+            <summary>
+             Обычный
+            </summary>
+        </member>
+        <member name="F:Mary.Core.PostParameterType.File">
+            <summary>
+             Файл
+            </summary>
+        </member>
+        <member name="T:Mary.Core.PostParameter">
+            <summary>
+             Параметр POST запроса в браузер
+            </summary>
+        </member>
+        <member name="P:Mary.Core.PostParameter.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:Mary.Core.PostParameter.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Mary.Core.PostParameter.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="M:Mary.Core.PostParameter.#ctor(System.String,System.String,Mary.Core.PostParameterType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mary.Core.PostParameter"/> struct.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="T:Mary.Core.SearchCollection">
+            <summary>
+             Коллекция параметров поиска html узлов
+            </summary>
+        </member>
+        <member name="P:Mary.Core.SearchCollection.Parameters">
+            <summary>
+             Параметры поиска
+            </summary>
+        </member>
+        <member name="P:Mary.Core.SearchCollection.Type">
+            <summary>
+             Тип поиска
+            </summary>
+        </member>
+        <member name="M:Mary.Core.SearchCollection.#ctor(Mary.Core.SearchParameter[],Mary.Core.SearchType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mary.Core.SearchCollection"/> class.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:Mary.Core.SearchCollection.#ctor(Mary.Core.SearchParameter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mary.Core.SearchCollection"/> class.
+            </summary>
+            <param name="parametr">The parametr.</param>
+        </member>
+        <member name="M:Mary.Core.SearchCollection.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mary.Core.SearchCollection"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Mary.Core.SearchParameter">
+            <summary>
+             Параметры поиска узлов в браузере
+            </summary>
+        </member>
+        <member name="F:Mary.Core.SearchParameter.TAG_NAME_ATTRIBUTE">
+            <summary>
+            тег имя
+            </summary>
+        </member>
+        <member name="F:Mary.Core.SearchParameter.INNERTEXT_NAME_ATTRIBUTE">
+            <summary>
+             Текст элемента
+            </summary>
+        </member>
+        <member name="F:Mary.Core.SearchParameter.HTML_NAME_ATTRIBUTE">
+            <summary>
+            Html
+            </summary>
+        </member>
+        <member name="P:Mary.Core.SearchParameter.AttributeName">
+            <summary>
+             Имя атрибута
+            </summary>
+        </member>
+        <member name="P:Mary.Core.SearchParameter.AttributeValue">
+            <summary>
+            Искомое значение
+            </summary>
+        </member>
+        <member name="P:Mary.Core.SearchParameter.IsIgnoreCase">
+            <summary>
+             Игнорировать ли регистр букв
+            </summary>
+        </member>
+        <member name="P:Mary.Core.SearchParameter.IsRegexSearch">
+            <summary>
+             Искть ли значение, как регулярное вырожение
+            </summary>
+        </member>
+        <member name="M:Mary.Core.SearchParameter.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mary.Core.SearchParameter"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <param name="isIgnoreCase">if set to <c>true</c> [is ignore case].</param>
+            <param name="isRegexSearch">if set to <c>true</c> [is regex search].</param>
+        </member>
+        <member name="T:Mary.Core.SearchType">
+            <summary>
+             Тип поиска узлов в браузера
+            </summary>
+        </member>
+        <member name="F:Mary.Core.SearchType.And">
+            <summary>
+             Узел должен удовлетворять всем критериям поиска
+             Тогда он включается в итоговый результат
+            </summary>
+        </member>
+        <member name="F:Mary.Core.SearchType.Or">
+            <summary>
+             Узел должен удовлетворять хотя бы одному условию поиска.
+            Тогда он включается в резултат.
+            </summary>
+        </member>
+    </members>
+</doc>
